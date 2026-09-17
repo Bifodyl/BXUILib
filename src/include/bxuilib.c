@@ -50,6 +50,7 @@ void bxuiUpdate()
 {
 	//Process events and refresh display
 	//TODO: Implement this
+	
 }
 
 bool bxuiButton()
