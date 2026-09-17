@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////
 //	Bif's simple X UI Library (BXUILib)	source file  //
-//			    Developed by Bif in 2026             //
+//			    Copyright ©2026 Bifodyl              //
 ///////////////////////////////////////////////////////
 
 #include <stdlib.h>			//C Standard Library
@@ -15,6 +15,7 @@
 Display* disp;  //Pass XDisplay into this
 Window rootWin; //Pass XRootWindow into this
 Window mainWin; //When creating window, pass into this
+GC gc;
 
 int winWidth;							//Window Width
 int winHeight;							//Window Height
@@ -22,7 +23,7 @@ int winBorder = 0;						//Border Thickness
 int winDepth = CopyFromParent;			//Copied from parent, ignore
 int winClass = CopyFromParent;			//Copied from parent, ignore
 Visual* winVisual = CopyFromParent;		//Copied from parent, ignore
-int attribMask = CWBackPixel;			//Window Attribute Mask
+int attribMask = CWBackPixel;			///To be honest, I don't know what this does, but X11 needs it.
 XSetWindowAttributes winAttribs = {};
 
 Window bxuiCreateWindow(int w,int h,const char* title)
@@ -30,10 +31,12 @@ Window bxuiCreateWindow(int w,int h,const char* title)
 	disp = XOpenDisplay(0); 					//Get XDisplay and pass into disp
 	rootWin = XDefaultRootWindow(disp);  		//Get root window from display
 	winAttribs.background_pixel = 0xFFFFFFFF;	//Set background color to white.
+	winAttribs.event_mask = StructureNotifyMask | KeyPressMask | KeyReleaseMask | ExposureMask; //Setup masks.
 	winWidth = w;
 	winHeight = h;
 	//Register and create new window:
 	mainWin = XCreateWindow(disp,rootWin,0,0,winWidth,winHeight,winBorder,winDepth,winClass,winVisual,attribMask,&winAttribs);
+	gc = XDefaultGC(disp,0);
 	XMapWindow(disp,mainWin); 		//Map the window
 	XStoreName(disp,mainWin,title); //Set title to string passed to this function.
 	XFlush(disp); 		//Flush display/Clear display.
@@ -43,20 +46,28 @@ Window bxuiCreateWindow(int w,int h,const char* title)
 //The following functions are empty placeholders,
 //they will be implemented over time.
 
+void bxuiUpdate()
+{
+	//Process events and refresh display
+	//TODO: Implement this
+}
+
 bool bxuiButton()
 {
-	//TODO: Make this create and maintain a button element
-	return false;
+	bool buttonState = false;
+	return buttonState;
 }
 
 bool bxuiToggleButton()
 {
-	return false;
+	bool buttonState ;
+	return buttonState;
 }
 
-void bxuiLabel()
+void bxuiLabel(int x,int y,const char* string,Window win)
 {
-	//TODO: Make this create and maintain a label element
+	//Label drawing function (Label is basically abstracted XDrawString)
+	XDrawString(disp,win,gc,x,y,string,sizeof(string));
 }
 
 void bxuiTextBox()

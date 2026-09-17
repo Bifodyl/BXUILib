@@ -1,3 +1,7 @@
+////////////////////////////////////////
+//   Simple BXUILib Example program   //
+////////////////////////////////////////
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -9,11 +13,12 @@
 
 int main()
 {
+    //TODO: Expand this
     //Create main window:
     Window win = bxuiCreateWindow(640,480,"Main Window");
     while (true)
     {
-
+        bxuiUpdate(); //Does nothing right now
     }
     return 0;
 }
