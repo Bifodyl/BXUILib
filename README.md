@@ -8,6 +8,6 @@ Another small note, I am making this for fun in my free time. Don't expect a sch
 * Actually fill main element functions.
 
 # How to use in your own project
-Simply copy the header and C source file into any folder you put your library files within your project
+Simply copy the header and C source file into the folder you put your include files within your project (Ex. ‘lib’ or ‘include’
 and then configure your build script or compiler to compile the 'bxuilib.c' source file with the
 rest of your project.
