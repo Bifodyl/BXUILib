@@ -22,7 +22,7 @@ int winBorder = 0;						//Border Thickness
 int winDepth = CopyFromParent;			//Copied from parent, ignore
 int winClass = CopyFromParent;			//Copied from parent, ignore
 Visual* winVisual = CopyFromParent;		//Copied from parent, ignore
-int attribMask = CWBackPixel;			///To be honest, I don't know what this does, but X11 needs it.
+int attribMask = CWBackPixel;			//Window Attribute Mask
 XSetWindowAttributes winAttribs = {};
 
 Window bxuiCreateWindow(int w,int h,const char* title)
