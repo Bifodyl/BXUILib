@@ -6,10 +6,10 @@
 
 Window bxuiCreateWindow(int, int, const char*);
 void bxuiUpdate();
-bool bxuiButton();
-bool bxuiToggleButton();
+bool bxuiButton(int,int,int,int,const char*);
+bool bxuiToggleButton(int,int);
 void bxuiLabel(int,int,const char*,Window);
-void bxuiTextBox();
-void bxuiTextArea();
+void bxuiTextBox(int,int,int,char*,char*,Window);
+void bxuiTextField(int,int,int,int,char*,char*,Window);
 
 #endif

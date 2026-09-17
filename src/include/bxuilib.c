@@ -49,17 +49,16 @@ Window bxuiCreateWindow(int w,int h,const char* title)
 void bxuiUpdate()
 {
 	//Process events and refresh display
-	//TODO: Implement this
-	
+	//TODO: Implement this	
 }
 
-bool bxuiButton()
+bool bxuiButton(int x,int y,int w,int h,const char* label)
 {
 	bool buttonState = false;
 	return buttonState;
 }
 
-bool bxuiToggleButton()
+bool bxuiToggleButton(int x,int y)
 {
 	bool buttonState ;
 	return buttonState;
@@ -71,12 +70,17 @@ void bxuiLabel(int x,int y,const char* string,Window win)
 	XDrawString(disp,win,gc,x,y,string,sizeof(string));
 }
 
-void bxuiTextBox()
+void bxuiTextBox(int x,int y,int w,char* string, char* buffer,Window win)
+{
+	//TODO: Handle printing here.
+}
+
+void bxuiTextField(int x,int y,int w,int h,char* string, char* buffer,Window win)
 {
 
 }
 
-void bxuiTextArea()
+void destroyBuffer()
 {
 
 }
