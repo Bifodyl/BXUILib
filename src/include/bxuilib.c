@@ -60,7 +60,7 @@ bool bxuiButton(int x,int y,int w,int h,const char* label)
 
 bool bxuiToggleButton(int x,int y)
 {
-	bool buttonState ;
+	bool buttonState = false;
 	return buttonState;
 }
 
